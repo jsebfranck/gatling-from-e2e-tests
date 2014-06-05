@@ -1,10 +1,11 @@
+
 var casper = require('casper').create();
-var url = 'http://ip-addr.es/';
+var url = 'http://www.lequipe.fr';
 
 casper.start(url, function() {
     var js = this.evaluate(function() {
         return document;
     });
-    this.echo(js.all[0].outerText);
+    this.echo(JSON.stringify(js));
 });
 casper.run();
