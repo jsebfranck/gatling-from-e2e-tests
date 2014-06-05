@@ -1,0 +1,8 @@
+{
+  "name": "gatling-from-e2e-tests-recorder",
+  "description": "http proxy which records each proxied requests",
+  "version": "0.0.1",
+  "dependencies": {
+    "http-proxy": "1.1.4"
+  }
+}
