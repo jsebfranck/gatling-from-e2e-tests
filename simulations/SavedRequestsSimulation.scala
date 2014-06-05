@@ -8,18 +8,17 @@ import assertions._
 
 class SavedRequestsSimulation extends Simulation {
 
-	val savedRequests = Array("https://www.google.fr",
-		"http://www.lequipe.fr",
-		"http://www.eurosport.fr"
-	);
+	val filename = "/Users/home/Desktop/JS/sources/gatling-from-e2e-tests/recorder/savedRequests.txt";
+	var savedRequests = io.Source.fromFile(filename).getLines();
 
 	var chain: com.excilys.ebi.gatling.core.structure.ChainBuilder = null;
-
 	for (savedRequest <- savedRequests) {
+		val requestName = savedRequest.substring(0, 20);
+
 		if (chain == null) {
-			chain = exec(http(savedRequest).get(savedRequest));
+			chain = exec(http(requestName).get(savedRequest));
 		} else {
-			chain = chain.exec(http(savedRequest).get(savedRequest));
+			chain = chain.exec(http(requestName).get(savedRequest));
 		}
 	}
 
