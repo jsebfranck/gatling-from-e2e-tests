@@ -1,9 +1,14 @@
 
-# TODO launch the gatling recorder and start the record
+# Launch the recorder
+node recorder/recorder.js &
 
-# TODO launch the e2e test
+# Launch the e2e test
 casperjs --proxy=127.0.0.1:8000 e2e/casperjs/lequipe.js
 
-# TODO stop the record
+# Stop the recorder
+killall node
 
-# TODO launch the generated simulation
+# Launch the generated simulation
+cd gatling
+./gradlew gatling -Psimulation=SavedRequestsSimulation
+cd -

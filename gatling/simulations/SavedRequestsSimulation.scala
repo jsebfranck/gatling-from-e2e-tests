@@ -8,7 +8,7 @@ import assertions._
 
 class SavedRequestsSimulation extends Simulation {
 
-	val filename = "/Users/home/Desktop/JS/sources/gatling-from-e2e-tests/recorder/savedRequests.txt";
+	val filename = "/Users/home/Desktop/JS/sources/gatling-from-e2e-tests/savedRequests.txt";
 	var savedRequests = io.Source.fromFile(filename).getLines();
 
 	var chain: com.excilys.ebi.gatling.core.structure.ChainBuilder = null;
